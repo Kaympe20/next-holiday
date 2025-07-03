@@ -1,13 +1,7 @@
 async function soonestDate() {
-    const response = await fetch('https://date.nager.at/api/v3/PublicHolidays/' + new Date().getFullYear() + '/US', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-    );
+    const response = await fetch('https://date.nager.at/api/v3/PublicHolidays/' + new Date().getFullYear() + '/US');
 
-    const data = await response.json();
+    const data = await response.json(); 
 
     for (const holiday of data) {
         if (new Date(holiday.date) > new Date()) {
